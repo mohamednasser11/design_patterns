@@ -27,6 +27,6 @@ import { SelectionTool } from "./state/tools/selection_tool";
 //state
 // >>> this pattern can be greatly abused beware of that (bad practice)
 //const canvas = new Canvas(new PaintPrush());
-// const canvas = new Canvas(new SelectionTool());
+//canvas.setTool(new SelectionTool);
 // canvas.mouseUp()
 // canvas.mouseDown();

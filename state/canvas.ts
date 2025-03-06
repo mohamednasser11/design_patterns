@@ -5,7 +5,11 @@ export class Canvas {
   constructor(currentTool: Tool) {
     this.currentTool = currentTool;
   }
-
+  
+  setTool(currentActiveTool: Tool) {
+    this.currentTool = currentActiveTool;
+  }
+  
   mouseUp() {
     this.currentTool.mouseUp();
   }

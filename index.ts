@@ -1,32 +1,17 @@
-import History from "./momento/history";
-import { Originator } from "./momento/originator";
-import { SingletonWithCache } from "./Singleton/singleton.cached";
-import { Canvas } from "./state/canvas";
-import { PaintPrush } from "./state/tools/paint_brush";
-import { SelectionTool } from "./state/tools/selection_tool";
+//client side code
 
-//singleton
-// const additionCalculator = new SingletonWithCache();
+import { BrowseHistory } from "./iterator/browseHistory";
 
-// additionCalculator.addNumber(5)
-// const value = additionCalculator.getTotal(); 
-// console.log(`>>>>>>> value before ==>`, value);
+const history = new BrowseHistory();
 
-//momento
-// const originator = new Originator();
-// const history = new History();
+history.push("https://new1.com");
+history.push("https://new2.com");
+history.push("https://new3.com");
 
-// originator.setContent('1');
-// history.addHistoryState(originator.createState());
-// originator.setContent('2');
-// history.addHistoryState(originator.createState());
-// originator.restore(history.removeHistoryState());
+const listITerator = history.createIterator();
 
-// console.log(`>>>>> content ==> ${originator.content}`);
-
-//state
-// >>> this pattern can be greatly abused beware of that (bad practice)
-//const canvas = new Canvas(new PaintPrush());
-//canvas.setTool(new SelectionTool);
-// canvas.mouseUp()
-// canvas.mouseDown();
+while (listITerator.hasNext()) {
+  const currentIteration = listITerator.current();
+  console.log(`>>>>>>>>>> the position now is ==> ${currentIteration}`);
+  listITerator.next();
+}
